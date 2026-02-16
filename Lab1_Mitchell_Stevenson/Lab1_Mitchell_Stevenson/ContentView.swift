@@ -29,12 +29,48 @@ struct ContentView: View {
     var body: some View {
         VStack {
             
+            // Title
             Text("Prime or Not").font(.largeTitle.bold())
             
+            // Timer
             Text("Next in... \(seconds)s").font(.headline).foregroundStyle(.secondary)
             
+            // Number display
+            Text("\(currNum)").font(.system(size: 72, weight: .bold))
+            
+            // Selector buttons
+//            HStack{
+//                choiceView(
+//                    label: "Prime",
+//                    selectPrime: true
+//                )
+//
+//                choiceView(
+//                    label: "Not Prime",
+//                    selectPrime: false
+//                )
+//            }
+            
+            
+            
+            
         }
-        .padding()
+        
+        
+        
+        
+    }
+    private func isPrime(_ n: Int) -> Bool{
+        if n < 2 {return false}
+        if n == 2 {return true}
+        if n % 2 == 0{ return false }
+        
+        var i = 3
+        while i * i <= n {
+            if n % i == 0 {return false}
+            i += 2
+        }
+        return true
     }
 }
 
