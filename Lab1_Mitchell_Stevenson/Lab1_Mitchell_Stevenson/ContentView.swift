@@ -28,10 +28,11 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            
+            Text("Prime or Not").font(.largeTitle.bold())
+            
+            Text("Next in... \(seconds)s").font(.headline).foregroundStyle(.secondary)
+            
         }
         .padding()
     }
