@@ -109,6 +109,28 @@ struct ContentView: View {
         
     }
     
+    private func recordAttempt(userWasCorrect: Bool){
+        if userWasCorrect{
+            correctCount += 1
+        } else {
+            wrongCount += 1
+        }
+        
+        guesses += 1
+        
+        if guesses == 10{
+            lastRoundCorrect = correctCount
+            lastRoundWrong = wrongCount
+            
+            showSummary = true
+            
+            
+            correctCount = 0
+            wrongCount = 0
+            guesses = 0
+        }
+    }
+    
     
     private func isPrime(_ n: Int) -> Bool{
         if n < 2 {return false}
