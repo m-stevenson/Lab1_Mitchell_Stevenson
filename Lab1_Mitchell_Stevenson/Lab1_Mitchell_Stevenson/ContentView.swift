@@ -131,6 +131,24 @@ struct ContentView: View {
         }
     }
     
+    private func nextNumber(){
+        currNum = Int.random(in: 2...200)
+        
+        showFeedback = false
+        wasPrime = nil
+        hasAnswered = false
+        seconds = 0
+        
+        if !hasAnswered{
+            hasAnswered = true
+            showFeedback = true
+            
+            recordAttempt(userWasCorrect: false)
+        } else {
+            
+        }
+    }
+    
     
     private func isPrime(_ n: Int) -> Bool{
         if n < 2 {return false}
