@@ -138,7 +138,9 @@ struct ContentView: View {
         wasPrime = nil
         hasAnswered = false
         seconds = 0
-        
+    }
+    
+    private func startTimer(){
         if !hasAnswered{
             hasAnswered = true
             showFeedback = true
