@@ -141,14 +141,30 @@ struct ContentView: View {
     }
     
     private func startTimer(){
-        if !hasAnswered{
-            hasAnswered = true
-            showFeedback = true
+        timer?.invalidate()
+        seconds = 5
+        hasAnswered = false
+        showFeedback = false
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true){
+            _  in if seconds > 1 {
+                seconds -= 1
+                return
+            }
+            seconds = 0
             
-            recordAttempt(userWasCorrect: false)
-        } else {
-            
+            if !hasAnswered{
+                hasAnswered = true
+                showFeedback = true
+                
+                recordAttempt(userWasCorrect: false)
+            } else {
+                
+            }
         }
+        
+        
+        
     }
     
     
