@@ -66,7 +66,7 @@ struct ContentView: View {
     @ViewBuilder
     private func choiceView(label: String, selectPrime: Bool) -> some View{
         let answerIsPrime = isPrime(currNum)
-        let correctChoice = (selectPrime = answerIsPrime)
+        let correctChoice = (selectPrime == answerIsPrime)
         
         VStack{
             Button{
@@ -103,7 +103,7 @@ struct ContentView: View {
         showFeedback = true
         
         let answerIsPrime = isPrime(currNum)
-        let userWasCorrect = (selectPrime = answerIsPrime)
+        let userWasCorrect = (selectPrime == answerIsPrime)
         
         recordAttempt(userWasCorrect: userWasCorrect)
         
