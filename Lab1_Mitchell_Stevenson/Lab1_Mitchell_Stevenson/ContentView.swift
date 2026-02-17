@@ -61,6 +61,42 @@ struct ContentView: View {
         
     }
     
+//        .onAppear
+    
+    @ViewBuilder
+    private func choiceView(label: String, selectPrime: Bool) -> some View{
+        let answerIsPrime = isPrime(currNum)
+        let correctChoice = (selectPrime = answerIsPrime)
+        
+        VStack{
+            Button{
+                guard !hasAnswered else {return}
+                handleUserSelection(selectPrime: selectPrime)
+            } label: {
+                Text(label)
+                    .font(.title2.bold())
+                    .frame(width: 140, height: 70)
+                    .background(Color.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 16))
+            }
+            .disabled(hasAnswered)
+            
+            if showFeedback{
+                if correctChoice{
+                    Image(systemName: "checkmark.circle.fill")
+                        .font(.system(size:34))
+                        .foregroundStyle(.green)
+                } else {
+                    Image(systemName: "xmark.circle.fill")
+                        .font(.system(size:34))
+                        .foregroundStyle(.red)
+                }
+            } else {
+                Color.clear.frame(height: 34)
+            }
+        }
+    }
+    
     
     
     
