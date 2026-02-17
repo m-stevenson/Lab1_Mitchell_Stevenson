@@ -64,7 +64,7 @@ struct ContentView: View {
             timer = nil
     }
         .alert("Round Summary", isPresented: $showSummary){
-            Button("ok"){}
+            Button("OK"){}
         } message: {
             Text("Correct \(lastRoundCorrect)\nIncorrect \(lastRoundWrong)")
         }
