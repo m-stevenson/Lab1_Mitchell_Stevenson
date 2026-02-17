@@ -56,12 +56,20 @@ struct ContentView: View {
                 Label("Incorrect \(wrongCount)", systemImage: "xmark.circle.fill")
             }
             .padding(.top, 32)
-            
+        }
+        .padding()
+        .onAppear{startTimer()}
+        .onDisappear{
+            timer?.invalidate()
+            timer = nil
+    }
+        .alert("Round Summary", isPresented: $showSummary){
+            Button("ok"){}
+        } message: {
+            Text("Correct \(lastRoundCorrect)\nIncorrect \(lastRoundWrong)")
         }
         
-    }
-    
-//        .onAppear
+        }
     
     @ViewBuilder
     private func choiceView(label: String, selectPrime: Bool) -> some View{
@@ -141,7 +149,7 @@ struct ContentView: View {
         showFeedback = false
         wasPrime = nil
         hasAnswered = false
-        seconds = 0
+        seconds = 5
     }
     
     private func startTimer(){
