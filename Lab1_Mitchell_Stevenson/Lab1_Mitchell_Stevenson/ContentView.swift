@@ -97,7 +97,17 @@ struct ContentView: View {
         }
     }
     
-    
+    private func handleUserSelection(selectPrime: Bool){
+        hasAnswered = true
+        wasPrime = selectPrime
+        showFeedback = true
+        
+        let answerIsPrime = isPrime(currNum)
+        let userWasCorrect = (selectPrime = answerIsPrime)
+        
+        recordAttempt(userWasCorrect: userWasCorrect)
+        
+    }
     
     
     private func isPrime(_ n: Int) -> Bool{
