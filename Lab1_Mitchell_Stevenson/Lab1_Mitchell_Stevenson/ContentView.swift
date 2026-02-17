@@ -163,7 +163,7 @@ struct ContentView: View {
             }
         }
         
-        
+        RunLoop.current.add(timer!, forMode: .common)
         
     }
     
