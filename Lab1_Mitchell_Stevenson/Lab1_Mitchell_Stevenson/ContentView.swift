@@ -107,6 +107,10 @@ struct ContentView: View {
         
         recordAttempt(userWasCorrect: userWasCorrect)
         
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8){
+            nextNumber()
+        }
+        
     }
     
     private func recordAttempt(userWasCorrect: Bool){
