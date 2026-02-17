@@ -162,6 +162,11 @@ struct ContentView: View {
                 showFeedback = true
                 
                 recordAttempt(userWasCorrect: false)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8){
+                    nextNumber()
+                }
+                
             } else {
                 
             }
