@@ -39,17 +39,17 @@ struct ContentView: View {
             Text("\(currNum)").font(.system(size: 72, weight: .bold)).padding(.top, 24)
             
             // Selector buttons
-//            HStack{
-//                choiceView(
-//                    label: "Prime",
-//                    selectPrime: true
-//                )
-//
-//                choiceView(
-//                    label: "Not Prime",
-//                    selectPrime: false
-//                )
-//            }
+            HStack{
+                choiceView(
+                    label: "Prime",
+                    selectPrime: true
+                )
+
+                choiceView(
+                    label: "Not Prime",
+                    selectPrime: false
+                )
+            }
             
             HStack{
                 Label("Correct \(correctCount)", systemImage: "checkmark.circle.fill")
