@@ -36,7 +36,7 @@ struct ContentView: View {
             Text("Next in... \(seconds)s").font(.headline).foregroundStyle(.secondary)
             
             // Number display
-            Text("\(currNum)").font(.system(size: 72, weight: .bold))
+            Text("\(currNum)").font(.system(size: 72, weight: .bold)).padding(.top, 24)
             
             // Selector buttons
 //            HStack{
@@ -51,15 +51,19 @@ struct ContentView: View {
 //                )
 //            }
             
-            
-            
+            HStack{
+                Label("Correct \(correctCount)", systemImage: "checkmark.circle.fill")
+                Label("Incorrect \(wrongCount)", systemImage: "xmark.circle.fill")
+            }
+            .padding(.top, 12)
             
         }
         
-        
-        
-        
     }
+    
+    
+    
+    
     private func isPrime(_ n: Int) -> Bool{
         if n < 2 {return false}
         if n == 2 {return true}
